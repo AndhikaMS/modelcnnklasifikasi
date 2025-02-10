@@ -1,0 +1,21 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediksi Sampah Organik/Non-Organik</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Upload Gambar untuk Klasifikasi Sampah</h1>
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">Klasifikasikan</button>
+    </form>
+
+    {% if predicted_class %}
+        <h2>Hasil Prediksi: {{ predicted_class }}</h2>
+        <img src="{{ img_path }}" alt="Gambar Diunggah" style="width:300px;">
+    {% endif %}
+</body>
+</html>
