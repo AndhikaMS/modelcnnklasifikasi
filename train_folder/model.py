@@ -29,14 +29,14 @@ train_datagen = ImageDataGenerator(
 val_datagen = ImageDataGenerator(rescale=1./255)  # Hanya rescale untuk validasi
 
 train_generator = train_datagen.flow_from_directory(
-    'D:/Campus/python/Uas Pemodelan Simulasi/train_folder/train_data',  
+    './train_folder/train_data',  
     target_size=(128, 128),  
     batch_size=32,
     class_mode='categorical'
 )
 
 validation_generator = val_datagen.flow_from_directory(
-    'D:/Campus/python/Uas Pemodelan Simulasi/train_folder/val_data',  # Tambahkan folder validasi
+     './train_folder/val_data',
     target_size=(128, 128),
     batch_size=32,
     class_mode='categorical'
