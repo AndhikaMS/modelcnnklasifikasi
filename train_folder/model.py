@@ -77,6 +77,13 @@ plt.savefig("training_plot.png")
 plt.show()  # Menampilkan grafik
 
 # Simpan model setelah grafik
-model.save('model.h5')
+# Pastikan folder `simulasi/` ada sebelum menyimpan model
+simulasi_path = os.path.join(os.path.dirname(__file__), "..", "simulasi")
+os.makedirs(simulasi_path, exist_ok=True)  # Buat folder jika belum ada
+
+# Simpan model ke dalam folder `simulasi/`
+model_path = os.path.join(simulasi_path, "model.h5")
+model.save(model_path)
 print("Model berhasil dilatih dan disimpan sebagai 'model.h5'")
 print("Grafik pelatihan telah disimpan sebagai 'training_plot.png'")
+
